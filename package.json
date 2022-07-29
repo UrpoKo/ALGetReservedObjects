@@ -5,6 +5,7 @@
 	"version": "0.0.2",
 	"repository": {"url": "https://github.com/UrpoKo/ALGetReservedObjects"},
 	"publisher": "UrpoKo",
+	"icon": "images/GetReservedIcon.png",
 	"engines": {
 		"vscode": "^1.69.0"
 	},

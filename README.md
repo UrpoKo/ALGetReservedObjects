@@ -16,3 +16,6 @@ The result is two files in the root folder:
 
 In the end of both files is a summary of object types and the number of their occurrences as well as number of found .al files and the count of reserved objects.
 
+Changelog
+0.0.2.  Added instructions and changed displayname from "GetReservedObjects" to "AL GetReservedObjects"
+0.0.1.  Initial publish
