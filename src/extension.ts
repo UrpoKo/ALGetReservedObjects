@@ -27,18 +27,20 @@ export function activate(context: vscode.ExtensionContext) {
 	// Command #2 - Get reserved object numbers and names from .al files recursively
 	let disposable = vscode.commands.registerCommand('getreservedobjects.getReservedObjects', async function () {
 		let count = 0;
-		let tcount = 0;
-		let pcount = 0;
-		let ccount = 0;
-		let mcount = 0;
-		let qcount = 0;
-		let ecount = 0;
-		let rcount = 0;
-		let xcount = 0;
-		let pecount = 0;
-		let tecount = 0;
-		let recount = 0;
-		let eecount = 0;
+		let tcount = 0;  //Table
+		let pcount = 0;  //Page
+		let ccount = 0;  //Codeunit
+		let mcount = 0;  //MenuSuite
+		let qcount = 0;  //Query
+		let ecount = 0;  //Enum
+		let rcount = 0;  //Report
+		let xcount = 0;  //XmlPort
+		let acount = 0;  //ControlAddin
+		let ocount = 0;  //Profile
+		let pecount = 0; //PageExtension
+		let tecount = 0; //TableExtension
+		let recount = 0; //ReportExtension
+		let eecount = 0; //EnumExtension
 		const tArray = [""];
 		const pArray = [""];
 		const cArray = [""];
@@ -47,6 +49,8 @@ export function activate(context: vscode.ExtensionContext) {
 		const eArray = [""];
 		const rArray = [""];
 		const xArray = [""];
+		const aArray = [""];
+		const oArray = [""];
 		const peArray = [""];
 		const teArray = [""];
 		const reArray = [""];
@@ -75,7 +79,7 @@ export function activate(context: vscode.ExtensionContext) {
 			let Action = '';
 			let extendObject = '';
 			const myObjArray = parString.split(" ");
-			let objType = myObjArray[0];
+			let objType = myObjArray[0].toLowerCase();
 			let objNo = myObjArray[1];
 			let secondSpace = findString(parString,' ',2);
 			let lowCaseString = parString.toLowerCase();
@@ -87,6 +91,20 @@ export function activate(context: vscode.ExtensionContext) {
 			} else {
 				ObjectName = parString.substring(secondSpace+1);
 			}
+			return objType + ';' + objNo + ';'+ ObjectName + ';'+ Action + ';'+ extendObject;
+		}
+
+		function fParseOutLine2(parString: string){
+			parString = parString.replace(/[\r\n]/gm, '');
+			let ObjectName = '';
+			let Action = '';
+			let extendObject = '';
+			const myObjArray = parString.split(" ");
+			let objType = myObjArray[0].toLowerCase();
+			let objNo = 0;
+			let firstSpace = findString(parString,' ',1);
+			let lowCaseString = parString.toLowerCase();
+			ObjectName = parString.substring(firstSpace+1);
 			return objType + ';' + objNo + ';'+ ObjectName + ';'+ Action + ';'+ extendObject;
 		}
 
@@ -196,6 +214,24 @@ export function activate(context: vscode.ExtensionContext) {
 								csvlines += tmpCsvLine + fParseOutLine(outline) + '\n';
 								break;
 							}
+							if (t.startsWith('controladdin ')) {
+								//console.log(i);
+								aArray.push(i);
+								outline += i;
+								acount += 1;
+								outlines += outline;
+								csvlines += tmpCsvLine + fParseOutLine2(outline) + '\n';
+								break;
+							}
+							if (t.startsWith('profile ')) {
+								//console.log(i);
+								oArray.push(i);
+								outline += i;
+								ocount += 1;
+								outlines += outline;
+								csvlines += tmpCsvLine + fParseOutLine2(outline) + '\n';
+								break;
+							}
 							if (t.startsWith('tableextension ')) {
 								//console.log(i);
 								teArray.push(i);
@@ -273,14 +309,16 @@ export function activate(context: vscode.ExtensionContext) {
 			var count2 = tcount+pcount+ccount+qcount+xcount+rcount+ecount+mcount+pecount+tecount+recount+eecount;
 			var objectSummary = 
 				'---------------------------' + '\r\n'+
-				'Tables    : ' + tcount + '\r\n' +
-				'Pages     : ' + pcount + '\r\n'+
-				'Codeunits : ' + ccount + '\r\n'+
-				'Queries   : ' + qcount + '\r\n'+
-				'XMLPorts  : ' + xcount + '\r\n'+
-				'Reports   : ' + rcount + '\r\n'+
-				'Enums     : ' + ecount + '\r\n'+
-				'Menusuites: ' + mcount + '\r\n'+
+				'Tables       : ' + tcount + '\r\n' +
+				'Pages        : ' + pcount + '\r\n'+
+				'Codeunits    : ' + ccount + '\r\n'+
+				'Queries      : ' + qcount + '\r\n'+
+				'XMLPorts     : ' + xcount + '\r\n'+
+				'Reports      : ' + rcount + '\r\n'+
+				'Enums        : ' + ecount + '\r\n'+
+				'Menusuites   : ' + mcount + '\r\n'+
+				'Profiles     : ' + ocount + '\r\n'+
+				'ControlAddins: ' + acount + '\r\n'+
 				'PageExtensions  : ' + pecount + '\r\n'+
 				'TableExtensions : ' + tecount + '\r\n'+
 				'ReportExtensions: ' + recount + '\r\n'+

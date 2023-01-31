@@ -4,6 +4,10 @@ All notable changes to the "getreservedobjects" extension will be documented in 
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+# Releases
 
-- Initial release
+* 0.0.5.  Added object types ControlAddin and Profile
+* 0.0.4.  Documentation adjustments
+* 0.0.3.  Fix documentation, added error messages, added .csv output, added extension name to ReservedObjectsByExtension.txt
+* 0.0.2.  Added instructions and changed displayname from "GetReservedObjects" to "AL GetReservedObjects"
+* 0.0.1.  Initial publish

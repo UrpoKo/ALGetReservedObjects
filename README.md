@@ -14,11 +14,9 @@ The result is three files in the root folder:
 
 * ReservedObjectsByExtension.txt: This file contains the reserved obejects in the order they have been found. On top of each section is the extension name.
 
-* ReservedObjectsByObjectType.txt: This file has the objects sorted out by their name and number. Full object types (table, page, codeunit, menusuite, query, enum, report and xmlport) are listed first, and then extended objects (pageExtension, tableExtension, reportExtension, enumExtension).
+* ReservedObjectsByObjectType.txt: This file has the objects sorted out by their name and number. Full object types (table, page, codeunit, menusuite, query, enum, report, xmlport, controladdin and profile) are listed first, and then extended objects (pageExtension, tableExtension, reportExtension, enumExtension).
 
 In the end of later two files is a summary of object types and the number of their occurrences as well as number of found .al files and the count of reserved objects.
 
 # Changelog
-* 0.0.3.  Fix documentation, added error messages, added .csv output, added extension name to ReservedObjectsByExtension.txt
-* 0.0.2.  Added instructions and changed displayname from "GetReservedObjects" to "AL GetReservedObjects"
-* 0.0.1.  Initial publish
+Changelog can be found from CHANGELOG.md file
