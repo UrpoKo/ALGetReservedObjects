@@ -6,6 +6,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 # Releases
 
+* 1.0.0.  Added Profile and ControlAddin to ReservedObjectType document statistics. Added Visualization category and tags
 * 0.0.5.  Added object types ControlAddin and Profile
 * 0.0.4.  Documentation adjustments
 * 0.0.3.  Fix documentation, added error messages, added .csv output, added extension name to ReservedObjectsByExtension.txt

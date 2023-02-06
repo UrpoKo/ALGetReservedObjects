@@ -6,6 +6,7 @@ import * as fs from 'fs';
 import { exit } from 'process';
 import { json } from 'stream/consumers';
 import { setMaxListeners } from 'events';
+import { time } from 'console';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -306,7 +307,7 @@ export function activate(context: vscode.ExtensionContext) {
 		//GetAppInfo(folderUri);
 		const info = await loopFiles(folderUri);
 		if (info.outlines) {
-			var count2 = tcount+pcount+ccount+qcount+xcount+rcount+ecount+mcount+pecount+tecount+recount+eecount;
+			var count2 = tcount+pcount+ccount+qcount+xcount+rcount+ecount+mcount+ocount+acount+pecount+tecount+recount+eecount;
 			var objectSummary = 
 				'---------------------------' + '\r\n'+
 				'Tables       : ' + tcount + '\r\n' +
@@ -330,7 +331,7 @@ export function activate(context: vscode.ExtensionContext) {
 			const writeData = Buffer.from(info.outlines, 'utf-8');
 			await vscode.workspace.fs.writeFile(fileUri1, writeData);
 
-			var tmpArray1 = tArray.concat(pArray,cArray,mArray,qArray,eArray,rArray,xArray).filter(Boolean).sort(Intl.Collator().compare)
+			var tmpArray1 = tArray.concat(pArray,cArray,mArray,qArray,eArray,rArray,xArray,oArray,aArray).filter(Boolean).sort(Intl.Collator().compare)
 			var tmpArray2 = peArray.concat(teArray,reArray,eeArray).filter(Boolean).sort(Intl.Collator().compare)
 			var writeData2 =  tmpArray1.concat(tmpArray2);
 			let flatFilePath = posix.join(folderUri.path, 'ReservedObjectsByObjectType.txt');
