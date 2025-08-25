@@ -9,7 +9,7 @@
   "publisher": "UrpoKo",
   "icon": "images/GetReservedIcon.png",
   "engines": {
-    "vscode": "^1.69.0"
+    "vscode": "^1.103.0"
   },
   "categories": [
     "Other",
@@ -39,23 +39,21 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "lint": "eslint src --ext ts"
   },
   "devDependencies": {
-    "@types/glob": "^7.2.0",
-    "@types/mocha": "^9.1.1",
-    "@types/node": "16.x",
+    "@types/glob": "^9.0.0",
+    "@types/mocha": "^10.0.10",
     "@types/vscode": "^1.103.0",
-    "@typescript-eslint/eslint-plugin": "^5.30.0",
-    "@typescript-eslint/parser": "^5.30.0",
-    "@vscode/test-electron": "^2.1.5",
-    "eslint": "^8.18.0",
-    "glob": "^8.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.40.0",
+    "@typescript-eslint/parser": "^8.41.0",
+    "eslint": "^9.34.0",
+    "glob": "^11.0.3",
     "mocha": "^10.0.0",
-    "typescript": "^4.7.4"
+    "typescript": "^4.9.5"
   },
-  "dependencies": {
-    "vscode": "^1.1.37"
-  }
+  "peerDependencies": {
+    "@types/node": "24.x"
+  },
+  "npm dedupe": true
 }
