@@ -1,5 +1,5 @@
 # ALGetReservedObjects
-Visual Studio Code Extension for AL developers to find out the reserved object numbers of an AL project or workspace.
+Visual Studio Code Extension for AL developers to find out the reserved object numbers of an AL project or workspace and easier OnPremises license assignation.
 
 # Usage
 This extension can be executed from the F1 or Ctrl-Shift-P menu with command
@@ -16,7 +16,7 @@ The result is three files in the root folder:
 
 * ReservedObjectsByObjectType.txt: This file has the objects sorted out by their name and number. Full object types (table, page, codeunit, menusuite, query, enum, report, xmlport, controladdin and profile) are listed first, and then extended objects (pageExtension, tableExtension, reportExtension, enumExtension).
 
-In the end of later two files is a summary of object types and the number of their occurrences as well as number of found .al files and the count of reserved objects.
+In the end of later two files is a summary of object types and the number of their occurrences as well as number of found .al files and the count of reserved objects, and a nifty summary for easier OnPremises license assignations.
 
 # Changelog
 Changelog can be found from CHANGELOG.md file
