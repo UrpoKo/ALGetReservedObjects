@@ -6,6 +6,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 # Releases
 
+* 1.1.1.  Copied changelog to README.md for easier access
 * 1.1.0.  Added PermissionSets, PermissionsetExtensions and Interfaces to recognized object types
           Added unrecognized files to summary.
           Added object ranges for easier license assignations
